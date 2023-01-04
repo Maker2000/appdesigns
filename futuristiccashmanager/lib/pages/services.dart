@@ -10,7 +10,7 @@ class Services extends StatefulWidget {
 class _ServicesState extends State<Services> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('Services'),
     );
   }

@@ -10,7 +10,7 @@ class Dialogs extends StatefulWidget {
 class _DialogsState extends State<Dialogs> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('dialogs'),
     );
   }

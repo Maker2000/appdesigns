@@ -55,8 +55,13 @@ class FuturisticCashManager extends StatelessWidget {
             ),
             contentPadding: EdgeInsets.zero,
           ),
-          appBarTheme:
-              const AppBarTheme(elevation: 0, color: Colors.transparent)),
+          appBarTheme: const AppBarTheme(
+            elevation: 0,
+            color: Colors.transparent,
+          ),
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Color.fromARGB(255, 14, 56, 54),
+          )),
     );
   }
 }

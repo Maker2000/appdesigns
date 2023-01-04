@@ -59,7 +59,10 @@ class _MainNavState extends State<MainNav> with SingleTickerProviderStateMixin {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 7, sigmaY: 5),
                 child: Container(
-                  color: Colors.white.withOpacity(0.15),
+                  color: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .backgroundColor!
+                      .withOpacity(.4),
                   child: TabBar(
                     labelColor: Theme.of(context).colorScheme.secondary,
                     unselectedLabelColor: Colors.grey,
@@ -69,25 +72,13 @@ class _MainNavState extends State<MainNav> with SingleTickerProviderStateMixin {
                       setState(() {
                         currentIndex = value;
                       });
-                      switch (value) {
-                        case 0:
-                          context.goNamed(RouteName.home.name);
-                          break;
-                        case 1:
-                          context.goNamed(RouteName.payments.name);
-                          break;
-                        case 2:
-                          context.goNamed(RouteName.dialogs.name);
-                          break;
-                        case 3:
-                          context.goNamed(RouteName.services.name);
-                          break;
-                        default:
-                          context.goNamed(RouteName.atms.name);
-                      }
+                      context.goNamed(RouteName.values[value].name);
                     },
                     tabs: screenTabs
-                        .map<Widget>((e) => SafeArea(top: false, child: e))
+                        .map<Widget>((e) => Padding(
+                              padding: const EdgeInsets.only(bottom: 12.0),
+                              child: e,
+                            ))
                         .toList(),
                   ),
                 ),

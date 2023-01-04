@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:futuristiccashmanager/utils/magic_strings.dart';
 import 'package:futuristiccashmanager/widgets/credit_card_card.dart';
 import 'package:go_router/go_router.dart';
@@ -111,11 +110,11 @@ class _HomeState extends State<Home> {
                 ),
               ),
               ListTile(
-                title: Text('To Expenses'),
+                title: const Text('To Expenses'),
                 onTap: () {
                   context.goNamed(RouteName.expenses.name);
                 },
-              )
+              ),
             ],
           )),
         ],

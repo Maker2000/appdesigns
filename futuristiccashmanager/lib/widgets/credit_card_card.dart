@@ -40,7 +40,7 @@ class CreditCard extends StatelessWidget {
                       Text('**** $cardNumber')
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     cardType.titleCase,
                     textAlign: TextAlign.left,

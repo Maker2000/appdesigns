@@ -1,10 +1,12 @@
 enum RouteName {
+  //tab routes
   home,
-  expenses,
-  dialogs,
   payments,
+  dialogs,
   services,
   atms,
+  //other pages
+  expenses,
 }
 
 enum CreditCardType { visa, mastercard }
