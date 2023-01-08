@@ -1,21 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:futuristiccashmanager/data.dart';
 import 'package:futuristiccashmanager/utils/math_utils.dart';
 
 class IconsInCircle extends StatefulWidget {
-  final List<IconItem> items;
+  final List<ExpenseItem> items;
   const IconsInCircle({super.key, required this.items});
-
-  // static bool _validPercentages(List<IconItem> items) {
-  //   return items
-  //           .reduce((value, element) => IconItem(
-  //               title: '',
-  //               icon: value.icon,
-  //               percentage: value.percentage + element.percentage))
-  //           .percentage <=
-  //       1;
-  // }
 
   @override
   State<IconsInCircle> createState() => _IconsInCircleState();
@@ -36,8 +27,8 @@ class _IconsInCircleState extends State<IconsInCircle> {
           angle: angle,
         ),
       ));
-      points.add(PointData(
-          Offset(alignment.x, alignment.y), widget.items[i].percentage));
+      points.add(PointData(Offset(alignment.x, alignment.y),
+          personalExpense.getGraphPercentage(widget.items[i])));
     }
     return items;
   }
@@ -62,30 +53,30 @@ class _IconsInCircleState extends State<IconsInCircle> {
   }
 }
 
-class IconItem {
+class ExpenseItem {
   final String title;
   final IconData icon;
-  final double percentage;
-  IconItem({required this.title, required this.icon, required this.percentage});
+  final double amountSpent;
+  ExpenseItem(
+      {required this.title, required this.icon, required this.amountSpent});
 }
 
 class IconItemWidget extends StatelessWidget {
-  final IconItem item;
+  final ExpenseItem item;
   final double angle;
-  IconItemWidget({super.key, required this.item, required this.angle})
-      : assert(item.percentage >= 0 && item.percentage <= 1);
+  const IconItemWidget({super.key, required this.item, required this.angle});
 
   Widget dataWidget(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Chip(
             label: Text(
-              '${(item.percentage * 100).truncate()}%',
+              '${(personalExpense.getPercentage(item) * 100).truncate()}%',
             ),
             labelStyle: const TextStyle(fontSize: 12),
             visualDensity: VisualDensity.compact,
             padding: EdgeInsets.zero,
-            backgroundColor: Theme.of(context).inputDecorationTheme.fillColor,
+            backgroundColor: Theme.of(context).cardColor,
           ),
           Text(
             item.title,

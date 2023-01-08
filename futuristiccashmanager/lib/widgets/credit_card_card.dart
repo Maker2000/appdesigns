@@ -4,14 +4,8 @@ import 'package:futuristiccashmanager/utils/extensions.dart';
 import 'package:futuristiccashmanager/utils/magic_strings.dart';
 
 class CreditCard extends StatelessWidget {
-  final CreditCardType cardType;
-  final double balance;
-  final String cardNumber;
-  const CreditCard(
-      {super.key,
-      required this.cardType,
-      required this.balance,
-      required this.cardNumber});
+  final CreditCardData cardData;
+  const CreditCard({super.key, required this.cardData});
 
   @override
   Widget build(BuildContext context) {
@@ -24,34 +18,31 @@ class CreditCard extends StatelessWidget {
             width: 1.5,
           ),
         ),
-        child: SizedBox(
-          height: constraints.maxHeight,
-          child: AspectRatio(
-            aspectRatio: 13 / 7,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      cardIcon(cardType, 60),
-                      Text('**** $cardNumber')
-                    ],
-                  ),
-                  const Spacer(),
-                  Text(
-                    cardType.titleCase,
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    '\$${balance.toStringAsFixed(2)}',
-                    textAlign: TextAlign.left,
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ],
-              ),
+        child: AspectRatio(
+          aspectRatio: 13 / 8,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    cardIcon(cardData.cardType, 60),
+                    Text('**** ${cardData.cardNumber}')
+                  ],
+                ),
+                const Spacer(),
+                Text(
+                  cardData.cardType.titleCase,
+                  textAlign: TextAlign.left,
+                ),
+                Text(
+                  '\$${cardData.balance.toStringAsFixed(2)}',
+                  textAlign: TextAlign.left,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ],
             ),
           ),
         ),
@@ -73,4 +64,15 @@ Widget cardIcon(CreditCardType cardType, [double width = 100]) {
         width: width,
       );
   }
+}
+
+class CreditCardData {
+  final CreditCardType cardType;
+  final double balance;
+  final String cardNumber;
+
+  const CreditCardData(
+      {required this.cardType,
+      required this.balance,
+      required this.cardNumber});
 }
