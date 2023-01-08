@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:futuristiccashmanager/widgets/expenses_graph.dart';
 import '../data.dart';
-import '../utils/magic_strings.dart';
 import '../widgets/credit_card_card.dart';
 import '../widgets/goals_display.dart';
 import '../widgets/misc.dart';
 import '../widgets/transfer_to_list.dart';
-import 'package:go_router/go_router.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:futuristiccashmanager/data.dart';
-import 'package:futuristiccashmanager/widgets/expenses_graph.dart';
-import 'package:futuristiccashmanager/widgets/icons_in_circle.dart';
-import 'package:futuristiccashmanager/widgets/misc.dart';
+import '../data.dart';
+import '../widgets/expenses_graph.dart';
+import '../widgets/icons_in_circle.dart';
 import 'package:intl/intl.dart';
 
 class Expenses extends StatefulWidget {

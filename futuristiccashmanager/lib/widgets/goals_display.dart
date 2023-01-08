@@ -1,6 +1,5 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:futuristiccashmanager/widgets/goal_card.dart';
+import 'goal_card.dart';
 
 class GoalsDisplay extends StatefulWidget {
   final List<Goal> goals;
