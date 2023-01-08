@@ -248,11 +248,11 @@ class GraphClipper extends CustomClipper<Path> {
     CatmullRomSpline curve = CatmullRomSpline([
       Offset(0, size.height),
       ...getGraphLine(size),
-      Offset(size.width, 0),
+      Offset(size.width, size.height),
     ]);
     return Path()
       ..addPolygon(curve.generateSamples().map((e) => e.value).toList(), false)
-      ..lineTo(size.width, size.height)
+      // ..lineTo(size.width, size.height)
       ..close();
   }
 
@@ -275,7 +275,7 @@ class GraphPainter extends CustomPainter {
     CatmullRomSpline curve = CatmullRomSpline([
       Offset(0, size.height),
       ...getGraphLine(size),
-      Offset(size.width, 0),
+      Offset(size.width, size.height),
     ]);
     canvas.drawPoints(
       PointMode.polygon,
@@ -312,7 +312,7 @@ class Expense {
     double maxNumber =
         expenses.max((element) => element.amountSpent).ceilToDouble();
     double total = amount;
-    maxNumber += (pow(10, total.toStringAsFixed(0).split('').length - 1) * 0.1);
+    maxNumber += (pow(10, total.toStringAsFixed(0).split('').length - 1) * 0.3);
 
     return item.amountSpent / maxNumber;
   }

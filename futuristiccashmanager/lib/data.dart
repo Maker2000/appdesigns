@@ -59,42 +59,42 @@ final List<ExpenseItem> _expenses = [
   ExpenseItem(
     title: 'Internet',
     icon: FontAwesomeIcons.globe,
-    amountSpent: 125.45,
+    amountSpent: 75.77,
   ),
   ExpenseItem(
     title: 'Grocery',
     icon: Icons.local_grocery_store_outlined,
-    amountSpent: 200.23,
+    amountSpent: 202.05,
   ),
   ExpenseItem(
     title: 'Taxi',
     icon: Icons.local_taxi,
-    amountSpent: 120.51,
+    amountSpent: 117.86,
   ),
   ExpenseItem(
     title: 'Restaurants',
     icon: Icons.restaurant,
-    amountSpent: 290.67,
+    amountSpent: 75.77,
   ),
   ExpenseItem(
     title: 'Sport',
     icon: Icons.sports,
-    amountSpent: 390.22,
+    amountSpent: 109.45,
   ),
   ExpenseItem(
     title: 'Alcohol',
     icon: Icons.liquor_outlined,
-    amountSpent: 79.99,
+    amountSpent: 25.25,
   ),
   ExpenseItem(
     title: 'Entertainment',
     icon: Icons.attractions,
-    amountSpent: 430.60,
+    amountSpent: 202.06,
   ),
   ExpenseItem(
     title: 'Clothes',
     icon: Icons.checkroom,
-    amountSpent: 500,
+    amountSpent: 33.68,
   ),
 ];
 
